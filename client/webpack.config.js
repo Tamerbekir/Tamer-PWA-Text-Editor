@@ -11,7 +11,9 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      // editor: './src/js/editor.js', // adding editor.js to dist
+      // header: './src/js/header.js' // adding header.js to dist
     },
     output: {
       filename: '[name].bundle.js',
