@@ -35,7 +35,7 @@ module.exports = () => {
         inject: true,
         name: 'Text Editor',
         short_name: 'Text Editor',
-        description: 'Create, write and edit your text right!',
+        description: 'Create, write and edit your text!',
         background_color: '#376191',
         theme_color: '#CBD1D7',
         start_url: './',

@@ -17,8 +17,8 @@ const initdb = async () =>
 // TODO: Add logic to a method that accepts some content and adds it to the database 
 // Exporting a function that takes in data and updates it to the database
 export const putDb = async (content) => {
-  try {
-    console.log('Post to the database')
+  // try {
+console.log('Post to the database')
     // Creating a connection to the database 'jate' and version we want to use (1)
     const contactDb = await openDB('jate', 1);
     // Create a new transaction and specify the database and data privileges.
@@ -31,32 +31,33 @@ export const putDb = async (content) => {
     // Get confirmation of the request.
     const result = await request;
     console.log('Content saved to database', result)
-  } catch (error) {
-    console.error('putDb not implemented')
-  }
+  // } catch (error) {
+  //   console.error('putDb not implemented')
+  // }
 }
+
 
 
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => {
-  try {
+  // try {
     console.log('Get from the database')
     // Creating a connection to the database 'jate' and version we want to use (1)
-    const contactGetDb = await openDB('jate', 1);
+    const contactDb = await openDB('jate', 1);
     // Create a new transaction and specify the database and data privileges.
-    const txGet = contactGetDb.transaction('jate', 'readonly')
+    const tx = contactDb.transaction('jate', 'readonly')
     // Open up the desired object store.
-    const storeGet = txGet.objectStore('jate')
+    const store = tx.objectStore('jate')
     // Use the .getAll() method to get all data in the database.
-    const requestGet = storeGet.getAll()
+    const request = store.getAll()
     // Confirmation of request
-    const resultGet = await requestGet;
-    console.log('result.value', resultGet);
+    const result = await request;
+    console.log('result.value', result);
     // using return to fetch the entries from the database and display them
-    return resultGet;
-  } catch (err) {
-    console.error('getDb not implemented');
-  }
+    return result?.value;
+  // } catch (err) {
+  //   console.error('getDb not implemented');
+  // }
 }
 
 initdb();
