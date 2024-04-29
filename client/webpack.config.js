@@ -12,9 +12,9 @@ module.exports = () => {
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js',
-      editor: './src/js/editor.js', // adding editor.js to dist
-      header: './src/js/header.js', // adding header.js to dist
-      database: './src/js/database.js' // adding database.js to dist
+      // editor: './src/js/editor.js', // adding editor.js to dist
+      // header: './src/js/header.js', // adding header.js to dist
+      // database: './src/js/database.js' // adding database.js to dist
     },
     output: {
       filename: '[name].bundle.js',
@@ -31,7 +31,7 @@ module.exports = () => {
       }),
       // adding webpackPWA manifest and adding properties to manifest
       new WebpackPwaManifest({
-        fingerprint: false,
+        fingerprints: false,
         inject: true,
         name: 'Text Editor',
         short_name: 'Text Editor',
